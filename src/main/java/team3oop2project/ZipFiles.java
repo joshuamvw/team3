@@ -18,7 +18,8 @@ public class ZipFiles {
 
     public void zipFiles(String zipFilePath) {
         try (ZipOutputStream zipOutputStream = new ZipOutputStream(new FileOutputStream(zipFilePath))) {
-            for (String filePath : filesToZip) {
+            for (String fileTZ : filesToZip) {
+                String filePath = "./src/main/java/team3oop2project/" + fileTZ;
                 File file = new File(filePath);
                 if (file.exists() && file.isFile()) {
                     addToZip(file, file.getName(), zipOutputStream);

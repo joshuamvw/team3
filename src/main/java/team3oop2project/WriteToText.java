@@ -17,6 +17,7 @@ public class WriteToText {
     public void write(String content) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))) {
             writer.write(content);
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -25,8 +26,10 @@ public class WriteToText {
     public void append(String content) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath, true))) {
             writer.write(content);
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
 }

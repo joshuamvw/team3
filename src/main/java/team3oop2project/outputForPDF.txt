@@ -1,0 +1,9 @@
+Tests for Passenger Class:
+private String passportNumber found: Score: +1
+assignRandomCabinClass Method with void return type found and verified: Score: +2
+private String lastName found: Score: +1
+private String flightNo found: Score: +1
+private char cabinClass found: Score: +1
+Overloaded constructor was created: Score: +2
+private int numLuggage found: Score: +1
+private String fisrtName found: Score: +1

@@ -8,34 +8,49 @@ import java.lang.reflect.Modifier;
 import java.lang.reflect.Field;
 //import P;
 
+import org.junit.Assume;
+import org.junit.Before;
 import org.junit.Test;
 
 /**
  * Unit test for simple App.
  */
+
+
 public class AppTest 
 {
     /**
      * Rigorous Test :-)
      */
     //Testing poopybutthole class example of how all will be done
+    private WriteToText writer = new WriteToText("./src/main/java/team3oop2project/outputForPDF.txt");
+    private boolean classExists = false;
 
+    // @Before
+    // public void test01setUpWriter(){
+    //     writer = new WriteToText("./src/main/java/team3oop2project/outputForPDF.txt");
+    // }
     
     
-    @Test
-    public void testforClassExistence(){
+    @Before
+    public void test02testforClassExistence(){
         // class is worth 3 in total 
         try {
             Class.forName("team3oop2project.poopybuttholes");
             System.out.println("PoopyButtholes class exists.");
+            classExists = true;
         } catch (ClassNotFoundException e) {
             System.out.println("PoopyButtholes class does not exist.");
             e.printStackTrace();
+            System.out.println("All tests failed");
         }
+
     }
 
     @Test
-    public void testforMethodExistence(){
+    public void test03testforMethodExistence(){
+        Assume.assumeTrue(classExists);
+
         try {
             // Specify the parameter types in the Class array
             Class<?>[] parameterTypes = { int.class, int.class };
@@ -54,7 +69,9 @@ public class AppTest
 
 
     @Test
-    public void testforAttributeExistence(){
+    public void test04testforAttributeExistence(){
+        Assume.assumeTrue(classExists);
+
         try {
             // Specify the parameter types in the Class array
             Class<?> rizzard = poopybuttholes.class;
