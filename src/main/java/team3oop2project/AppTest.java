@@ -20,7 +20,8 @@ public class AppTest
      */
     //Testing poopybutthole class example of how all will be done
 
-     
+    
+    
     @Test
     public void testforClassExistence(){
         // class is worth 3 in total 
