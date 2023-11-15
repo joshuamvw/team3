@@ -40,6 +40,8 @@ public class UnzipFiles {
 
         String zipFile = INPUT_ZIP_FILE;
         String outputFolder = OUTPUT_FOLDER;
+        String[] filesUnzipped = null;
+        int x=0;
 
      byte[] buffer = new byte[1024];
      try{
@@ -54,11 +56,13 @@ public class UnzipFiles {
     	ZipEntry ze = zis.getNextEntry();
     	while(ze!=null){
     	   String fileName = ze.getName();
+           filesUnzipped[x] = fileName;
+           x = x +1;
            File newFile = new File(outputFolder + File.separator + fileName);
            System.out.println("file unzip : "+ newFile.getAbsoluteFile());
             //create all non exists folders
             //else you will hit FileNotFoundException for compressed folder
-            new File(newFile.getParent()).mkdirs();
+            new File(newFile.getParent()).mkdirs();    
             FileOutputStream fos = new FileOutputStream(newFile);
             int len;
             while ((len = zis.read(buffer)) > 0) {
