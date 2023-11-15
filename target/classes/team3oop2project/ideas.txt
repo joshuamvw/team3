@@ -4,7 +4,7 @@ The assignment being marked is assignment 1 OOP1
 Problems to figure out:
 1. How to get that user's file into ours   copy method..
 2. How to get information from test cases to text
-3. How to export and write to a PDF // com.itextpdf.kernel.pdf
-4. We have to incorporate 3 design patterns as well not so?
+3. How to export and write to a PDF // com.itextpdf.kernel.pdf 
+4. We have to incorporate 3 design patterns as well not so? yes 
 5. use code to unzip zipped files to be tested
 6. identify the comments in the code to be tested
