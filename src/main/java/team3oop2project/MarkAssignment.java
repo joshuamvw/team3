@@ -71,6 +71,15 @@ public class MarkAssignment
         zip.zipFiles(zipFilePath);
         unzip.deleteUnzippedFiles(filesUnzipped);
 
+        String[] idlul = new String[10];
+        idlul = zipFileName.split("_");
+        txtFileToPDF txtToPdf = new txtFileToPDF();
+
+        try{
+        txtToPdf.convertTextToPdf("./src/main/java/team3oop2project/outputForPDF.txt", "./src/main/java/team3oop2project/"+ idlul[0] +".pdf");
+        } catch(IOException e){
+            System.err.println("Error: " + e.getMessage());
+        }
 
         // Wipe the files after
         // try{
