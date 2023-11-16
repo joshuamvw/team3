@@ -38,8 +38,9 @@ public class LuggageSlipTester {
 
     }
 
+
      @Test
-    public void test02CheckforpassportNumberExistence(){
+    public void test02CheckforownerExistence(){
         Assume.assumeTrue(classExists);
 
         try {
@@ -52,23 +53,128 @@ public class LuggageSlipTester {
 
             if(Modifier.isPrivate(modifiers)){
 
-                // if(fieldToFind.getType().equals(String.class)){
-                    writer.append("private String passportNumber found: Score: +1\n");
-                    score = score + 1;//}
-                // else{
-                //     writer.append("passportNumber was not of type String: Score: +0\n");
-                // }
+                 if(fieldToFind.getType().equals(PPassenger.class)){
+                    writer.append("private Passenger owner found: Score: +1\n");
+                    score = score + 1;}
+                 else{
+                     writer.append("owner was not of type Passenger: Score: +0\n");
+                 }
             }
             else{
-                writer.append("passportNumber was not private: Score: +0\n");
+                writer.append("owner was not private: Score: +0\n");
             }
         
         } catch (NoSuchFieldException e) {
-            writer.append("passportNumber was not found: Score: +0\n");
+            writer.append("owner was not found: Score: +0\n");
             System.out.println("Field not found: " + e.getMessage());
         }
 
         
     }
+
+
+    @Test
+    public void test04CheckforluggageSlipIDCounterExistence(){
+        Assume.assumeTrue(classExists);
+
+        try {
+            // Specify the parameter types in the Class array
+            Class<?> classs = LLuggageSlip.class;
+
+            // Get the method by name and parameter types
+            Field fieldToFind = classs.getDeclaredField("luggageSlipIdCounter");
+            int modifiers = fieldToFind.getModifiers();
+
+            if(Modifier.isPrivate(modifiers)){
+
+                if(fieldToFind.getType().equals(int.class)){
+                    writer.append("private int luggageSlipIdCounter found: Score: +1\n");
+                    score = score + 1;}
+                else{
+                    writer.append("luggageSlipIdCounter was not of type int: Score: +0\n");
+                }
+            }
+            else{
+                writer.append("luggageSlipIdCounter was not private: Score: +0\n");
+            }
+        
+        } catch (NoSuchFieldException e) {
+            writer.append("luggageSlipIdCounter was not found: Score: +0\n");
+            System.out.println("Field not found: " + e.getMessage());
+        }
+
+        
+    }
+
+
+     @Test
+    public void test04CheckforluggageSlipIdExistence(){
+        Assume.assumeTrue(classExists);
+
+        try {
+            // Specify the parameter types in the Class array
+            Class<?> classs = LLuggageSlip.class;
+
+            // Get the method by name and parameter types
+            Field fieldToFind = classs.getDeclaredField("luggageSlipId");
+            int modifiers = fieldToFind.getModifiers();
+
+            if(Modifier.isPrivate(modifiers)){
+
+                if(fieldToFind.getType().equals(String.class)){
+                    writer.append("private String luggageSlipId found: Score: +1\n");
+                    score = score + 1;}
+                else{
+                    writer.append("luggageSlipId was not of type String: Score: +0\n");
+                }
+            }
+            else{
+                writer.append("luggageSlipId was not private: Score: +0\n");
+            }
+        
+        } catch (NoSuchFieldException e) {
+            writer.append("luggageSlipId was not found: Score: +0\n");
+            System.out.println("Field not found: " + e.getMessage());
+        }
+
+        
+    }
+
+
+     @Test
+    public void test05CheckforlabelExistence(){
+        Assume.assumeTrue(classExists);
+
+        try {
+            // Specify the parameter types in the Class array
+            Class<?> classs = LLuggageSlip.class;
+
+            // Get the method by name and parameter types
+            Field fieldToFind = classs.getDeclaredField("label");
+            int modifiers = fieldToFind.getModifiers();
+
+            if(Modifier.isPrivate(modifiers)){
+
+                if(fieldToFind.getType().equals(String.class)){
+                    writer.append("private String label found: Score: +1\n");
+                    score = score + 1;}
+                else{
+                    writer.append("label was not of type String: Score: +0\n");
+                }
+            }
+            else{
+                writer.append("label was not private: Score: +0\n");
+            }
+        
+        } catch (NoSuchFieldException e) {
+            writer.append("label was not found: Score: +0\n");
+            System.out.println("Field not found: " + e.getMessage());
+        }
+
+    }
+
+
+
+
 
 }

@@ -7,3 +7,12 @@ private char cabinClass found: Score: +1
 Overloaded constructor was created: Score: +2
 private int numLuggage found: Score: +1
 private String fisrtName found: Score: +1
+private String label found: Score: +1
+luggageSlipIdCounter was not found: Score: +0
+private Passenger owner found: Score: +1
+luggageSlipId was not found: Score: +0
+private String destination found: Score: +1
+private String flightNo found: Score: +1
+private LuggageManifest manifest found: Score: +1
+private String origin found: Score: +1
+private LocalDateTime flightDate found: Score: +1

@@ -65,7 +65,7 @@ public class MarkAssignment
             System.err.println("Error: " + e.getMessage());
         }
 
-        JUnitCore.runClasses(AppTest.class, PassengerTester.class);
+        JUnitCore.runClasses(PassengerTester.class,LuggageSlipTester.class, FlightTester.class);
         //Result result = JUnitCore.runClasses(AppTest.class, PassengerTester.class);
         ZipFiles zip = new ZipFiles(filesUnzipped);
         zip.zipFiles(zipFilePath);
