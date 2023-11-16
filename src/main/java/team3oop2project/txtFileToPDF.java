@@ -9,10 +9,10 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
-public class txtFileToPDF {
+public class TxtFileToPDF {
 
-    public void convertTextToPdf(String txtFile, String pdfFile) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new FileReader(txtFile));
+    public void convertTextToPdf(String txtFilePath, String pdfPath) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(txtFilePath));
              PDDocument pdf = new PDDocument()) {
 
             PDPage page = new PDPage();
@@ -28,6 +28,7 @@ public class txtFileToPDF {
 
             String line;
             while ((line = reader.readLine()) != null) {
+                contentStream.newLineAtOffset(50, 700);
                 contentStream.showText(line);
                 contentStream.newLine();
                 
@@ -35,6 +36,8 @@ public class txtFileToPDF {
 
             contentStream.endText();
             contentStream.close();
+
+            String pdfFile = pdfPath;
 
             pdf.save(pdfFile);
         }

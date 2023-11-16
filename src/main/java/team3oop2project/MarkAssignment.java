@@ -30,7 +30,8 @@ public class MarkAssignment
 
         try {
             copycat.addPackageStatement("./src/main/java/team3oop2project/Passenger.java", "./src/main/java/team3oop2project/PPassenger.java");
-            writer.write("Tests for Passenger Class:\n");
+            writer.write("Tests for Passenger Class (16 marks):\n");
+            JUnitCore.runClasses(PassengerTester.class);
         } catch (IOException e) {
             writer.write("Passenger class does not exist (You may check for errors in the naming convention)\n");
             writer.append("Score: 0/16\n");
@@ -39,33 +40,39 @@ public class MarkAssignment
 
         //Copy Flight
         try {
-        copycat.addPackageStatement("./src/main/java/team3oop2project/Flight.java", "./src/main/java/team3oop2project/FFlight.java");
+            copycat.addPackageStatement("./src/main/java/team3oop2project/Flight.java", "./src/main/java/team3oop2project/FFlight.java");
+            writer.append("\nTests for Flight Class:\n");
+            JUnitCore.runClasses(FlightTester.class);
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
 
         //Copy LuggageSlip
         try {
-        copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageSlip.java", "./src/main/java/team3oop2project/LLuggageSlip.java");
+            copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageSlip.java", "./src/main/java/team3oop2project/LLuggageSlip.java");
+            writer.append("\nTests for LuggageSlip Class:\n");
+            JUnitCore.runClasses(LuggageSlipTester.class);
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
 
         //Copy LuggageManifest
         try {
-        copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageManifest.java", "./src/main/java/team3oop2project/LLuggageManifest.java");
+            copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageManifest.java", "./src/main/java/team3oop2project/LLuggageManifest.java");
+            writer.append("\nTests for LuggageManifest Class:\n");
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
 
         //Copy LuggageManagementSystem
         try {
-        copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageManagementSystem.java", "./src/main/java/team3oop2project/LLuggageManagementSystem.java");
+            copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageManagementSystem.java", "./src/main/java/team3oop2project/LLuggageManagementSystem.java");
+            writer.append("\nTests for LuggageManagementSystem Class:\n");
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }
 
-        JUnitCore.runClasses(PassengerTester.class,LuggageSlipTester.class, FlightTester.class);
+        
         //Result result = JUnitCore.runClasses(AppTest.class, PassengerTester.class);
         ZipFiles zip = new ZipFiles(filesUnzipped);
         zip.zipFiles(zipFilePath);
@@ -73,7 +80,7 @@ public class MarkAssignment
 
         String[] idlul = new String[10];
         idlul = zipFileName.split("_");
-        txtFileToPDF txtToPdf = new txtFileToPDF();
+        TxtFileToPDF txtToPdf = new TxtFileToPDF();
 
         try{
         txtToPdf.convertTextToPdf("./src/main/java/team3oop2project/outputForPDF.txt", "./src/main/java/team3oop2project/"+ idlul[0] +".pdf");

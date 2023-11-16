@@ -20,7 +20,7 @@ public class LuggageSlipTester {
     private WriteToText writer = new WriteToText("./src/main/java/team3oop2project/outputForPDF.txt");
     private boolean classExists = false;
     private int score = 0;
-    PPassenger passenger ;
+    LLuggageSlip luggageSlip ;
 
 
     @Before
@@ -107,7 +107,7 @@ public class LuggageSlipTester {
     }
 
 
-     @Test
+    @Test
     public void test04CheckforluggageSlipIdExistence(){
         Assume.assumeTrue(classExists);
 
@@ -173,6 +173,76 @@ public class LuggageSlipTester {
 
     }
 
+    @Test
+    public void test06CheckforOverloadedConstructor() {
+        try {
+            // Get the overloaded constructor
+            Constructor<LLuggageSlip> constructor = LLuggageSlip.class.getConstructor(PPassenger.class, FFlight.class, String.class);
+            writer.append("Overloaded constructor was created: Score: +2\n");
+            score = score+2;
+
+            PPassenger passenger = new PPassenger("987654321","Jane","Doe","XYZ789"); //??? 4 paramters in this constructor
+            FFlight flight = new FFlight("XYZ789","YYZ","POS",LocalDateTime); //???? 4 paramters
+            String label = "ABC";
+
+            //Create an instance using the overloaded constructor
+            LLuggageSlip luggageSlip = constructor.newInstance(passenger, flight, label); //remember FFlight snf LLuggage etc
+
+
+            // Assert that the object has been initialized correctly
+            assertEquals("987654321", passenger.getPassportNumber());
+            assertEquals("Jane", passenger.getFirstName());
+            assertEquals("Doe", passenger.getLastName());
+            assertEquals("XYZ789", passenger.getFFlightNo());
+
+            assertEquals("XYZ789", flight.getFFlightNo());
+            assertEquals("YYZ", flight.getDestination());
+            assertEquals("POS", flight.getOrigin());
+            assertEquals("XYZ789", flight.getFFlightDate());
+
+            // Verify that the label is set correctly
+             assertEquals(label, luggageSlip.getLabel());
+
+        } catch (Exception e) {
+            writer.append("Overloaded constructor was not created: Score: +0\n");
+            fail("Exception during test: " + e.getMessage());
+        }
+    }
+
+
+    @Test
+    public void test7hasOwnerMethod() {
+    Assume.assumeTrue(classExists);
+
+    try {
+        // Create an instance of luggage Slip
+        PPassenger passenger = new PPassenger("987654321","Jane","Doe","XYZ789");
+        //LLuggageSlip luggageSlip = new LLuggageSlip();
+
+        // Get the method by name
+        Method methodToFind = LLuggageSlip.class.getDeclaredMethod("hasOwner");
+        methodToFind.setAccessible(true);
+
+        // Invoke the method
+        methodToFind.invoke(passenger);
+
+        // Get the value of the cabinClass field using reflection
+        Field passportNumber  = PPassenger.class.getDeclaredField("passportNumber");
+        passportNumber.setAccessible(true);
+        String modifiedValue = (String) passportNumber.get(passenger);
+
+        assertEquals("987654321", modifiedValue); 
+
+        // Check if the modifiedValue is one of the expected values
+        //assertTrue("Invalid cabin class value", Arrays.asList('F', 'B', 'P', 'E').contains(modifiedValue));
+
+        writer.append("hasOwner Method with boolean return type found and verified: Score: +2\n");
+        score += 2;
+    } catch (NoSuchMethodException | NoSuchFieldException | IllegalAccessException | InvocationTargetException e) {
+        writer.append("hasOwner Method not found or failed to execute: Score: +0\n");
+        fail("Exception during test: " + e.getMessage());
+    }
+}
 
 
 

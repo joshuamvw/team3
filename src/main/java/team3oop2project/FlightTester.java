@@ -21,7 +21,7 @@ public class FlightTester{
     private WriteToText writer = new WriteToText("./src/main/java/team3oop2project/outputForPDF.txt");
     private boolean classExists = false;
     private int score = 0;
-    PPassenger passenger ;
+    FFlight flight ;
 
 
     @Before

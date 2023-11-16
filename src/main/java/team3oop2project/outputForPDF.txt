@@ -1,18 +1,28 @@
-Tests for Passenger Class:
-private String passportNumber found: Score: +1
+Tests for Passenger Class (16 marks):
+private String passportNumber found: Score: +1/1
 assignRandomCabinClass Method with void return type found and verified: Score: +2
-private String lastName found: Score: +1
-private String flightNo found: Score: +1
-private char cabinClass found: Score: +1
-Overloaded constructor was created: Score: +2
-private int numLuggage found: Score: +1
-private String fisrtName found: Score: +1
-private String label found: Score: +1
-luggageSlipIdCounter was not found: Score: +0
-private Passenger owner found: Score: +1
-luggageSlipId was not found: Score: +0
+toString Method with String return type found and verified: Score: +3
+private String lastName found: Score: +1/1
+private String flightNo found: Score: +1/1
+private char cabinClass found: Score: +1/1
+Overloaded constructor Passenger was created properly: Score: +5/5
+private int numLuggage found: Score: +1/1
+private String fisrtName found: Score: +1/1
+
+Tests for Flight Class:
 private String destination found: Score: +1
 private String flightNo found: Score: +1
 private LuggageManifest manifest found: Score: +1
 private String origin found: Score: +1
 private LocalDateTime flightDate found: Score: +1
+
+Tests for LuggageSlip Class:
+private String label found: Score: +1
+luggageSlipIdCounter was not found: Score: +0
+private Passenger owner found: Score: +1
+hasOwner Method not found or failed to execute: Score: +0
+luggageSlipId was not found: Score: +0
+
+Tests for LuggageManifest Class:
+
+Tests for LuggageManagementSystem Class:

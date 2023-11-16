@@ -11,8 +11,11 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
+import org.junit.After;
+import org.junit.AfterClass;
 import org.junit.Assume;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class PassengerTester {
@@ -53,19 +56,19 @@ public class PassengerTester {
             if(Modifier.isPrivate(modifiers)){
 
                 if(fieldToFind.getType().equals(String.class)){
-                    writer.append("private String passportNumber found: Score: +1\n");
+                    writer.append("private String passportNumber found: Score: +1/1\n");
                     score = score + 1;
                 }
                 else{
-                    writer.append("passportNumber was not of type String: Score: +0\n");
+                    writer.append("passportNumber was not of type String: Score: +0/1\n");
                 }
             }
             else{
-                writer.append("passportNumber was not private: Score: +0\n");
+                writer.append("passportNumber was not private: Score: +0/1\n");
             }
         
         } catch (NoSuchFieldException e) {
-            writer.append("passportNumber was not found: Score: +0\n");
+            writer.append("passportNumber was not found: Score: +0/1\n");
             System.out.println("Field not found: " + e.getMessage());
         }
 
@@ -87,18 +90,18 @@ public class PassengerTester {
             if(Modifier.isPrivate(modifiers)){
 
                 if(fieldToFind.getType().equals(String.class)){
-                    writer.append("private String flightNo found: Score: +1\n");
+                    writer.append("private String flightNo found: Score: +1/1\n");
                     score = score + 1;}
                 else{
-                    writer.append("flightNo was not of type String: Score: +0\n");
+                    writer.append("flightNo was not of type String: Score: +0/1\n");
                 }
             }
             else{
-                writer.append("flightNo was not private: Score: +0\n");
+                writer.append("flightNo was not private: Score: +0/1\n");
             }
         
         } catch (NoSuchFieldException e) {
-            writer.append("flightNo was not found: Score: +0\n");
+            writer.append("flightNo was not found: Score: +0/1\n");
             System.out.println("Field not found: " + e.getMessage());
         }
 
@@ -120,18 +123,18 @@ public class PassengerTester {
             if(Modifier.isPrivate(modifiers)){
 
                 if(fieldToFind.getType().equals(String.class)){
-                    writer.append("private String fisrtName found: Score: +1\n");
+                    writer.append("private String fisrtName found: Score: +1/1\n");
                     score = score + 1;}
                 else{
-                    writer.append("firstName was not of type String: Score: +0\n");
+                    writer.append("firstName was not of type String: Score: +0/1\n");
                 }
             }
             else{
-                writer.append("firstName was not private: Score: +0\n");
+                writer.append("firstName was not private: Score: +0/1\n");
             }
         
         } catch (NoSuchFieldException e) {
-            writer.append("firstName was not found: Score: +0\n");
+            writer.append("firstName was not found: Score: +0/1\n");
             System.out.println("Field not found: " + e.getMessage());
         }
 
@@ -152,18 +155,18 @@ public class PassengerTester {
             if(Modifier.isPrivate(modifiers)){
 
                 if(fieldToFind.getType().equals(String.class)){
-                    writer.append("private String lastName found: Score: +1\n");
+                    writer.append("private String lastName found: Score: +1/1\n");
                     score = score + 1;}
                 else{
-                    writer.append("lastName was not of type String: Score: +0\n");
+                    writer.append("lastName was not of type String: Score: +0/1\n");
                 }
             }
             else{
-                writer.append("lastName was not private: Score: +0\n");
+                writer.append("lastName was not private: Score: +0/1\n");
             }
         
         } catch (NoSuchFieldException e) {
-            writer.append("lastName was not found: Score: +0\n");
+            writer.append("lastName was not found: Score: +0/1\n");
             System.out.println("Field not found: " + e.getMessage());
         }
 
@@ -184,25 +187,25 @@ public class PassengerTester {
             if(Modifier.isPrivate(modifiers)){
 
                 if(fieldToFind.getType().equals(int.class)){
-                    writer.append("private int numLuggage found: Score: +1\n");
+                    writer.append("private int numLuggage found: Score: +1/1\n");
                     score = score + 1;}
                 else{
-                    writer.append("numLuggage was not of type int: Score: +0\n");
+                    writer.append("numLuggage was not of type int: Score: +0/1\n");
                 }
             }
             else{
-                writer.append("numLuggage was not private: Score: +0\n");
+                writer.append("numLuggage was not private: Score: +0/1\n");
             }
         
         } catch (NoSuchFieldException e) {
-            writer.append("numLuggage was not found: Score: +0\n");
+            writer.append("numLuggage was not found: Score: +0/1\n");
             System.out.println("Field not found: " + e.getMessage());
         }
 
         
     }
     @Test
-    public void test07CheckforflightNoExistence(){
+    public void test07CheckforcabinClassExistence(){
         Assume.assumeTrue(classExists);
 
         try {
@@ -216,18 +219,18 @@ public class PassengerTester {
             if(Modifier.isPrivate(modifiers)){
 
                 if(fieldToFind.getType().equals(char.class)){
-                    writer.append("private char cabinClass found: Score: +1\n");
+                    writer.append("private char cabinClass found: Score: +1/1\n");
                     score = score + 1;}
                 else{
-                    writer.append("cabinClass was not of type char: Score: +0\n");
+                    writer.append("cabinClass was not of type char: Score: +0/1\n");
                 }
             }
             else{
-                writer.append("cabinClass was not private: Score: +0\n");
+                writer.append("cabinClass was not private: Score: +0/1\n");
             }
         
         } catch (NoSuchFieldException e) {
-            writer.append("cabinClass was not found: Score: +0\n");
+            writer.append("cabinClass was not found: Score: +0/1\n");
             System.out.println("Field not found: " + e.getMessage());
         }
 
@@ -240,20 +243,43 @@ public class PassengerTester {
         try {
             // Get the overloaded constructor
             Constructor<PPassenger> constructor = PPassenger.class.getConstructor(String.class, String.class, String.class, String.class);
-            writer.append("Overloaded constructor was created: Score: +2\n");
-            score = score+2;
+            
 
-            // // Create an instance using the overloaded constructor
-            // PPassenger passenger = constructor.newInstance("John", 25);
+            try{
+                // // Create an instance using the overloaded constructor
+                PPassenger passenger = constructor.newInstance("A", "B", "C","D");
+                assertEquals("A", passenger.getPassportNumber());
+                assertEquals("B", passenger.getFirstName());
+                assertEquals("C", passenger.getLastName());
+                assertEquals("D", passenger.getFFlightNo());
 
-            // // Assert that the object has been initialized correctly
-            // assertEquals("John", passenger.getPassportNumber());
-            // assertEquals(25, passenger.getFirstName());
-            // assertEquals("John", passenger.getLastName());
-            // assertEquals(25, passenger.getFFlightNo());
 
+                try{
+
+                    Method getNumLuggageMethod = PPassenger.class.getDeclaredMethod("getNumLuggage");
+                    int numLuggage = (int) getNumLuggageMethod.invoke(passenger);
+                    Method getCabinClassMethod = PPassenger.class.getDeclaredMethod("getCabinClass");
+                    char cabinClass = (char) getCabinClassMethod.invoke(passenger);
+                    assertTrue(String.format("numLuggage should be in the range 0 to 3: %d", numLuggage), numLuggage >= 0 && numLuggage <= 3);
+                    assertTrue(String.format("cabinClass should be one of F, B, P, E: %c", cabinClass), "FBPE".indexOf(cabinClass) != -1);
+                    writer.append("Overloaded constructor Passenger was created properly: Score: +5/5\n");
+                score = score+5;
+                }
+                catch(AssertionError e){
+                    writer.append("Overloaded constructor Passenger was created properly but numLuggage and cabinClass werent set properly: Score: +2/5\n");
+                score = score+2;
+                }
+                
+
+                
+            }catch(AssertionError e){
+                writer.append("Overloaded constructor Passenger was created but states not set properly: Score: +1/5\n");
+                score = score+1;
+            }
+
+            
         } catch (Exception e) {
-            writer.append("Overloaded constructor was not created: Score: +0\n");
+            writer.append("Overloaded constructor Passenger was not created: Score: +0/5\n");
             fail("Exception during test: " + e.getMessage());
         }
     }
@@ -289,8 +315,9 @@ public class PassengerTester {
     }
 }
 
+
 @Test
-public void test10checkForToStringMethod() {
+public void testToStringMethodFormat() {
     Assume.assumeTrue(classExists);
 
     try {
@@ -303,23 +330,30 @@ public void test10checkForToStringMethod() {
         // Check if the return type is String
         Class<?> returnType = toStringMethod.getReturnType();
         if (!returnType.equals(String.class)) {
-            writer.append("toString Method found, but it does not have a String return type: Score: +0\n");
-          // Stop the test if the return type is not as expected
-        }
-        else{
+            System.out.println("toString Method found, but it does not have a String return type.");
+            // Stop the test if the return type is not as expected
+        } else {
+            // Invoke the method and get the result
+            String toStringResult = (String) toStringMethod.invoke(passenger);
+            System.out.println(toStringResult);
 
-        // Invoke the method and get the result
-        String toStringResult = (String) toStringMethod.invoke(passenger);
+            // Check if the result contains the expected format
+            //assertEquals("PP NO. TA890789 NAME: Joe.Bean NUMLUGGAGE: \\d+ CLASS: E", toStringResult);
+            try{
+                assertTrue(toStringResult.matches("PP NO\\. TA890789 NAME: J\\.Bean NUMLUGGAGE: [0-3] CLASS: [A-Z]"));
+                writer.append("toString Method with String return type found and verified: Score: +3\n");
+                score += 3;
+            }catch(AssertionError e){
+                writer.append("toString Method with String return type found but format doesnt match: Score: +2\n");
+                score += 2;
+            }
+            
+            
 
-        // Check if the result contains the expected format
-        assertTrue(toStringResult.matches("PP NO. TA890789 NAME: Joe.Bean NUMLUGGAGE: 3 CLASS: E"));
-
-        writer.append("toString Method with correct format found and verified: Score: +3\n");
-        score += 3;
-        System.out.println("123");
+            System.out.println("toString Method format is correct.");
         }
     } catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException e) {
-        writer.append("toString Method not found or failed to execute: Score: +0\n");
+        System.out.println("toString Method not found or failed to execute: " + e.getMessage());
         fail("Exception during test: " + e.getMessage());
     }
 }
