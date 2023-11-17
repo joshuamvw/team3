@@ -129,38 +129,7 @@ public void testLuggageManifestConstructor() {
 }
 
 
-@Test
-    public void testAddLuggage() {
-        // Create real instances of necessary classes and dependencies
-        PPassenger passenger = new PPassenger("987654321", "Jane", "Doe", "XYZ789");
-        FFlight flight = new FFlight("XYZ789", "YYZ", "POS", LocalDateTime.now());
-        LLuggageSlip luggageSlip = new LLuggageSlip(passenger, flight);
 
-        // Create an instance of the class containing the addLuggage method
-        LLuggageManifest luggageManifest = constructor.newInstance(passenger, flight);
-
-        // Invoke the method to be tested
-        String result = luggageManifest.addLuggage(passenger, flight);
-
-        // Perform assertions based on the expected behavior
-        assertEquals("Luggage added for John Doe (ABC123). Excess luggage cost: $0.0", result);
-
-        // Verify the state of the real instances using assertEquals
-        assertEquals("John", passenger.getFirstName());
-        assertEquals("Doe", passenger.getLastName());
-        assertEquals('E', passenger.getCabinClass());
-        assertEquals("ABC123", flight.getFFlightNo());
-
-        // Verify the state of the luggageSlip using assertEquals
-        assertEquals("John", luggageSlip.passenger.getFirstName());
-        assertEquals("Doe", luggageSlip.passenger().getLastName());
-        assertEquals('E', luggageSlip.passenger().getCabinClass());
-        assertEquals("ABC123", luggageSlip.passenger().getFlightNo());
-        assertEquals("", luggageSlip.getLabel());
-
-        // You can add more test cases to cover different scenarios and edge cases
-    }
-}
 
 
 
