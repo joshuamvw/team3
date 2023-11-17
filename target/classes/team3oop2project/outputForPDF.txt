@@ -9,16 +9,19 @@ Overloaded constructor Passenger was created properly: Score: +5/5
 private int numLuggage found: Score: +1/1
 private String fisrtName found: Score: +1/1
 
-Tests for Flight Class:
-private String destination found: Score: +1
-private String flightNo found: Score: +1
-private LuggageManifest manifest found: Score: +1
-private String origin found: Score: +1
-private LocalDateTime flightDate found: Score: +1
+Tests for Flight Class (16 marks):
+getAllowedLuggage method of int return type found and verified: Score: +2/2
+Overloaded constructor FFlight was created properly: Score: +2/2
+private String flightNo found: Score: +1/1
+private LuggageManifest manifest found: Score: +1/1
+private String origin found: Score: +1/1
+CheckInLuggage method of String return type found and verified: Score: +5/5
+private String destination found: Score: +1/1
+private LocalDateTime flightDate found: Score: +1/1
 
-Tests for LuggageSlip Class:
-private String label found: Score: +1
+Tests for LuggageSlip Class (14 marks):
 luggageSlipIdCounter was not found: Score: +0
+private String label found: Score: +1
 private Passenger owner found: Score: +1
 hasOwner Method not found or failed to execute: Score: +0
 luggageSlipId was not found: Score: +0

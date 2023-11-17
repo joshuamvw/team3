@@ -20,7 +20,6 @@ public class LuggageSlipTester {
     private WriteToText writer = new WriteToText("./src/main/java/team3oop2project/outputForPDF.txt");
     private boolean classExists = false;
     private int score = 0;
-    LLuggageSlip luggageSlip ;
 
 
     @Before
@@ -72,44 +71,44 @@ public class LuggageSlipTester {
         
     }
 
-
     @Test
-    public void test04CheckforluggageSlipIDCounterExistence(){
-        Assume.assumeTrue(classExists);
+public void testCheckForLuggageSlipIdCounterExistence() {
+    Assume.assumeTrue(classExists);
+    
+    LLuggageSlip luggageSlip;
 
-        try {
-            // Specify the parameter types in the Class array
-            Class<?> classs = LLuggageSlip.class;
+    try {
+        // Specify the class
+        Class<?> classToCheck = LLuggageSlip.class;
 
-            // Get the method by name and parameter types
-            Field fieldToFind = classs.getDeclaredField("luggageSlipIdCounter");
-            int modifiers = fieldToFind.getModifiers();
+        // Get the field by name
+        Field fieldToFind = classToCheck.getDeclaredField("luggageSlipIdCounter");
+        int modifiers = fieldToFind.getModifiers();
 
-            if(Modifier.isPrivate(modifiers)){
-
-                if(fieldToFind.getType().equals(int.class)){
-                    writer.append("private int luggageSlipIdCounter found: Score: +1\n");
-                    score = score + 1;}
-                else{
-                    writer.append("luggageSlipIdCounter was not of type int: Score: +0\n");
-                }
+        if (Modifier.isStatic(modifiers)) {
+            if (fieldToFind.getType().equals(int.class)) {
+                writer.append("private int luggageSlipIdCounter found: Score: +1\n");
+                score = score + 1;
+            } else {
+                writer.append("luggageSlipIdCounter was not of type int: Score: +0\n");
             }
-            else{
-                writer.append("luggageSlipIdCounter was not private: Score: +0\n");
-            }
-        
-        } catch (NoSuchFieldException e) {
-            writer.append("luggageSlipIdCounter was not found: Score: +0\n");
-            System.out.println("Field not found: " + e.getMessage());
+        } else {
+            writer.append("luggageSlipIdCounter was not private: Score: +0\n");
         }
 
-        
+    } catch (NoSuchFieldException e) {
+        writer.append("luggageSlipIdCounter was not found: Score: +0\n");
+        System.out.println("Field not found: " + e.getMessage());
     }
+}
+
 
 
     @Test
     public void test04CheckforluggageSlipIdExistence(){
         Assume.assumeTrue(classExists);
+        
+    LLuggageSlip luggageSlip;
 
         try {
             // Specify the parameter types in the Class array

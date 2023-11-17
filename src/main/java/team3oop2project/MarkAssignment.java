@@ -41,7 +41,7 @@ public class MarkAssignment
         //Copy Flight
         try {
             copycat.addPackageStatement("./src/main/java/team3oop2project/Flight.java", "./src/main/java/team3oop2project/FFlight.java");
-            writer.append("\nTests for Flight Class:\n");
+            writer.append("\nTests for Flight Class (16 marks):\n");
             JUnitCore.runClasses(FlightTester.class);
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
@@ -50,7 +50,7 @@ public class MarkAssignment
         //Copy LuggageSlip
         try {
             copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageSlip.java", "./src/main/java/team3oop2project/LLuggageSlip.java");
-            writer.append("\nTests for LuggageSlip Class:\n");
+            writer.append("\nTests for LuggageSlip Class (14 marks):\n");
             JUnitCore.runClasses(LuggageSlipTester.class);
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());

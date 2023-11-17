@@ -23,15 +23,16 @@ public class TxtFileToPDF {
             contentStream.setFont(new PDType1Font(Standard14Fonts.FontName.HELVETICA), 12);
             // No need to specify the font, it will use the default font
             
+            
             contentStream.beginText();
+            contentStream.setLeading(14.5f);
             contentStream.newLineAtOffset(50, 700);
 
             String line;
             while ((line = reader.readLine()) != null) {
-                contentStream.newLineAtOffset(50, 700);
                 contentStream.showText(line);
-                contentStream.newLine();
                 
+                contentStream.newLine();
             }
 
             contentStream.endText();
@@ -43,8 +44,6 @@ public class TxtFileToPDF {
         }
     }
 }
-
-
 
 /*
 import java.io.BufferedReader;
