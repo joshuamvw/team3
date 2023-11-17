@@ -35,9 +35,41 @@ public class LuggageManifestTester {
             
         }
 
-
-
-
     }
+
+
+    @Test
+    public void test02CheckforslipsExistence(){
+        Assume.assumeTrue(classExists);
+
+        try {
+            // Specify the parameter types in the Class array
+            Class<?> classs = LLuggageManifest.class;
+
+            // Get the method by name and parameter types
+            Field fieldToFind = classs.getDeclaredField("slips");
+            int modifiers = fieldToFind.getModifiers();
+
+            if(Modifier.isPrivate(modifiers)){
+
+                 if(fieldToFind.getType().equals(LLuggageSlip.class)){
+                    writer.append("private slips found: Score: +1\n");
+                    score = score + 1;}
+                 else{
+                     writer.append("slips was not of type LLuggageSlip: Score: +0\n");
+                 }
+            }
+            else{
+                writer.append("slips was not private: Score: +0\n");
+            }
+        
+        } catch (NoSuchFieldException e) {
+            writer.append("slips was not found: Score: +0\n");
+            System.out.println("Field not found: " + e.getMessage());
+        }
+
+        
+    }
+
 
 }

@@ -1,6 +1,7 @@
 package team3oop2project;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 
@@ -9,6 +10,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
+import java.time.LocalDateTime;
 import java.util.Arrays;
 
 import org.junit.Assume;
@@ -173,21 +175,18 @@ public void testCheckForLuggageSlipIdCounterExistence() {
     }
 
     @Test
-    public void test06CheckforOverloadedConstructor() {
+public void testCheckForOverloadedConstructor1() {
+    try {
+        // Get the overloaded constructor
+        Constructor<LLuggageSlip> constructor = LLuggageSlip.class.getConstructor(PPassenger.class, FFlight.class);
+
+        PPassenger passenger = new PPassenger("987654321", "Jane", "Doe", "XYZ789");
+        FFlight flight = new FFlight("XYZ789", "YYZ", "POS", LocalDateTime.now());
+
+        // Create an instance using the overloaded constructor
+        LLuggageSlip luggageSlip = constructor.newInstance(passenger, flight);
+
         try {
-            // Get the overloaded constructor
-            Constructor<LLuggageSlip> constructor = LLuggageSlip.class.getConstructor(PPassenger.class, FFlight.class, String.class);
-            writer.append("Overloaded constructor was created: Score: +2\n");
-            score = score+2;
-
-            PPassenger passenger = new PPassenger("987654321","Jane","Doe","XYZ789"); //??? 4 paramters in this constructor
-            FFlight flight = new FFlight("XYZ789","YYZ","POS",LocalDateTime); //???? 4 paramters
-            String label = "ABC";
-
-            //Create an instance using the overloaded constructor
-            LLuggageSlip luggageSlip = constructor.newInstance(passenger, flight, label); //remember FFlight snf LLuggage etc
-
-
             // Assert that the object has been initialized correctly
             assertEquals("987654321", passenger.getPassportNumber());
             assertEquals("Jane", passenger.getFirstName());
@@ -197,16 +196,62 @@ public void testCheckForLuggageSlipIdCounterExistence() {
             assertEquals("XYZ789", flight.getFFlightNo());
             assertEquals("YYZ", flight.getDestination());
             assertEquals("POS", flight.getOrigin());
-            assertEquals("XYZ789", flight.getFFlightDate());
 
-            // Verify that the label is set correctly
-             assertEquals(label, luggageSlip.getLabel());
-
-        } catch (Exception e) {
-            writer.append("Overloaded constructor was not created: Score: +0\n");
-            fail("Exception during test: " + e.getMessage());
+        
+            writer.append("Overloaded constructor LuggageSlip(Passenger p, Flight f) was created and verified: Score: +3\n");
+            score += 3;
+        } catch (AssertionError e) {
+            writer.append("Overloaded constructor LuggageSlip(Passenger p, Flight f) was created but didn't set state properly: Score: +1\n");
+            score += 1;
         }
+
+    } catch (Exception e) {
+        writer.append("Overloaded constructor LuggageSlip(Passenger p, Flight f) was not created: Score: +0\n");
+        fail("Exception during test: " + e.getMessage());
     }
+}
+
+    @Test
+public void testCheckForOverloadedConstructor2() {
+    try {
+        // Get the overloaded constructor
+        Constructor<LLuggageSlip> constructor = LLuggageSlip.class.getConstructor(PPassenger.class, FFlight.class, String.class);
+        
+
+        PPassenger passenger = new PPassenger("987654321", "Jane", "Doe", "XYZ789");
+        FFlight flight = new FFlight("XYZ789", "YYZ", "POS", LocalDateTime.now());
+        String label = "ABC";
+
+        // Create an instance using the overloaded constructor
+        LLuggageSlip luggageSlip = constructor.newInstance(passenger, flight, label);
+
+        try{
+        // Assert that the object has been initialized correctly
+        assertEquals("987654321", passenger.getPassportNumber());
+        assertEquals("Jane", passenger.getFirstName());
+        assertEquals("Doe", passenger.getLastName());
+        assertEquals("XYZ789", passenger.getFFlightNo());
+
+        assertEquals("XYZ789", flight.getFFlightNo());
+        assertEquals("YYZ", flight.getDestination());
+        assertEquals("POS", flight.getOrigin());
+
+        // Verify that the label is set correctly
+        assertEquals(label, luggageSlip.getLabel());
+        writer.append("Overloaded constructor LuggageSlip(Passenger p, Flight f, String label) was created and verified: Score: +3\n");
+        score += 3;
+        }
+        catch(AssertionError e){
+            writer.append("Overloaded constructor LuggageSlip(Passenger p, Flight f, String label) was created but didnt set state properly: Score: +1\n");
+            score += 1;
+        }
+
+    } catch (Exception e) {
+        writer.append("Overloaded constructor LuggageSlip(Passenger p, Flight f, String label) was not created: Score: +0\n");
+        fail("Exception during test: " + e.getMessage());
+    }
+}
+
 
 
     @Test
@@ -243,7 +288,58 @@ public void testCheckForLuggageSlipIdCounterExistence() {
     }
 }
 
+@Test
+public void testToStringMethod() {
+    Assume.assumeTrue(classExists);
 
+    try {
+        // Create an instance of PPassenger and FFlight
+        PPassenger passenger = new PPassenger("TA890789", "Joe", "Bean", "BW600");
+        FFlight flight = new FFlight("BW600", "Destination", "Origin", LocalDateTime.now());
 
+        // Create an instance of LLuggageSlip
+        LLuggageSlip luggageSlip = new LLuggageSlip(passenger, flight, "105");
+
+        // Call getNumLuggage to determine the number of slips to be printed
+        int numLuggage = passenger.getNumLuggage();
+
+        // Initialize a variable to track the successful assertions
+        boolean allAssertionsPassed = true;
+
+        // Invoke the toString() method for each luggage slip
+        for (int i = 1; i <= numLuggage; i++) {
+            String toStringResult = luggageSlip.toString();
+
+            // Check if the return type is String
+            Class<?> returnType = luggageSlip.getClass().getMethod("toString").getReturnType();
+            if (!returnType.equals(String.class)) {
+                writer.append("toString Method found, but it does not have a String return type: Score: +0/2\n");
+                fail("toString Method does not have a String return type");
+            } else {
+                try {
+                    // Check if the result contains the expected format
+                    assertTrue(toStringResult.matches("BW600_Bean_" + i + " PP NO. TA890789 NAME: J.BEAN NUMLUGGAGE: \\d+ CLASS: E \\$105"));
+                } catch (AssertionError e) {
+                    allAssertionsPassed = false;
+                    writer.append("toString Method found but has wrong format: Score: +1/2\n");
+                    score += 1;
+                    break;  // Exit the loop if any assertion fails
+                }
+            }
+        }
+
+        // Update the score if all assertions passed
+        if (allAssertionsPassed) {
+            writer.append("toString Method with correct format found and verified: Score: +2/2\n");
+            score += 2;
+        }
+    } catch (Exception e) {
+        writer.append("toString Method not found or failed to execute: Score: +0/2\n");
+        fail("Exception during test: " + e.getMessage());
+    }
+}
 
 }
+
+
+

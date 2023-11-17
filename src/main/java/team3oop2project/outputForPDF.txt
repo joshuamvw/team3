@@ -21,10 +21,13 @@ private LocalDateTime flightDate found: Score: +1/1
 
 Tests for LuggageSlip Class (14 marks):
 luggageSlipIdCounter was not found: Score: +0
+Overloaded constructor LuggageSlip(Passenger p, Flight f) was created and verified: Score: +3
+Overloaded constructor LuggageSlip(Passenger p, Flight f, String label) was created and verified: Score: +3
 private String label found: Score: +1
 private Passenger owner found: Score: +1
 hasOwner Method not found or failed to execute: Score: +0
 luggageSlipId was not found: Score: +0
+toString Method found but has wrong format: Score: +0/2
 
 Tests for LuggageManifest Class:
 
