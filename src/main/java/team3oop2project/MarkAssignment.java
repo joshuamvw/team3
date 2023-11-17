@@ -59,7 +59,7 @@ public class MarkAssignment
         //Copy LuggageManifest
         try {
             copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageManifest.java", "./src/main/java/team3oop2project/LLuggageManifest.java");
-            writer.append("\nTests for LuggageManifest Class:\n");
+            writer.append("\nTests for LuggageManifest Class (20 marks):\n");
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }

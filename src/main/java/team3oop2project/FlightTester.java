@@ -291,7 +291,7 @@ public class FlightTester{
     }
 //IDK HOW TO FIX THIS ONE.....
     @Test
-public void testPrintLuggageManifestMethod() {
+    public void testPrintLuggageManifestMethod() {
     Assume.assumeTrue(classExists);
 
     try {

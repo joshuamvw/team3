@@ -27,8 +27,8 @@ private String label found: Score: +1
 private Passenger owner found: Score: +1
 hasOwner Method not found or failed to execute: Score: +0
 luggageSlipId was not found: Score: +0
-toString Method found but has wrong format: Score: +0/2
+toString Method with correct format found and verified: Score: +2/2
 
-Tests for LuggageManifest Class:
+Tests for LuggageManifest Class (20 marks):
 
 Tests for LuggageManagementSystem Class:
