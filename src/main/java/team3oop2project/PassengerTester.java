@@ -30,7 +30,10 @@ public class PassengerTester {
     private int score = 0;
     PPassenger passenger ;
 
-
+/**
+ * The purpose of this test is to check if the Passenger class exists from the students code. 
+ * If it doesnt, all the tests would be skipped and no error thrown and student would be marked 0
+ */
     @Before
     public void test01CheckForClassExistence(){
         // class is worth 16 in total 
@@ -46,7 +49,10 @@ public class PassengerTester {
 
     }
 
-
+/**
+ * This tests checks if the passportNumber attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test02CheckforpassportNumberExistence(){
         Assume.assumeTrue(classExists);
@@ -80,7 +86,10 @@ public class PassengerTester {
 
         
     }
-
+/**
+ * This tests checks if the flightNo attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test03CheckforflightNoExistence(){
         Assume.assumeTrue(classExists);
@@ -114,6 +123,10 @@ public class PassengerTester {
         
     }
 
+/**
+ * This tests checks if the firstName attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test04CheckforfirstNameExistence(){
         Assume.assumeTrue(classExists);
@@ -144,7 +157,10 @@ public class PassengerTester {
             System.out.println("Field not found: " + e.getMessage());
         }
 
-        
+/**
+ * This tests checks if the lastName attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */      
     }
     @Test
     public void test05CheckforlastNameExistence(){
@@ -178,6 +194,11 @@ public class PassengerTester {
 
         
     }
+
+/**
+ * This tests checks if the numLuggage attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test06CheckfornumLuggageExistence(){
         Assume.assumeTrue(classExists);
@@ -210,6 +231,11 @@ public class PassengerTester {
 
         
     }
+
+/**
+ * This tests checks if the cabinClass attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test07CheckforcabinClassExistence(){
         Assume.assumeTrue(classExists);
@@ -243,7 +269,10 @@ public class PassengerTester {
         
     }
 
-
+    /**
+ * This tests checks if the overloaded constructor [ PPassenger(String passportNumber, String firstName, String lastName, String flightNo) ] is present and if it sets the state properly.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test08CheckforOverloadedConstructor() {
         try {
@@ -290,6 +319,10 @@ public class PassengerTester {
         }
     }
 
+    /**
+ * This tests checks if the method [ assignRandomCabinClass ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
     @Test
     public void test9CheckForAssignRandomCabinClassMethod() {
     Assume.assumeTrue(classExists);
@@ -321,7 +354,10 @@ public class PassengerTester {
     }
 }
 
-
+/**
+ * This tests checks if the method [ toString ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
 @Test
 public void testToStringMethodFormat() {
     Assume.assumeTrue(classExists);

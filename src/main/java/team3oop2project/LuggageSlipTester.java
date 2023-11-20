@@ -28,7 +28,10 @@ public class LuggageSlipTester {
     private boolean classExists = false;
     private int score = 0;
 
-
+/**
+ * The purpose of this test is to check if the LuggageSlip class exists from the students code. 
+ * If it doesnt, all the tests would be skipped and no error thrown and student would be marked 0
+ */
     @Before
     public void test01CheckForClassExistence(){
         // class is worth 16 in total 
@@ -44,7 +47,10 @@ public class LuggageSlipTester {
 
     }
 
-
+/**
+ * This tests checks if the owner attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
      @Test
     public void test02CheckforownerExistence(){
         Assume.assumeTrue(classExists);
@@ -78,6 +84,10 @@ public class LuggageSlipTester {
         
     }
 
+    /**
+ * This tests checks if the luggageSlipIdCounter attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
 public void testCheckForLuggageSlipIdCounterExistence() {
     Assume.assumeTrue(classExists);
@@ -110,7 +120,10 @@ public void testCheckForLuggageSlipIdCounterExistence() {
 }
 
 
-
+/**
+ * This tests checks if the luggageSlipId attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test04CheckforluggageSlipIdExistence(){
         Assume.assumeTrue(classExists);
@@ -146,7 +159,10 @@ public void testCheckForLuggageSlipIdCounterExistence() {
         
     }
 
-
+/**
+ * This tests checks if the label attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
      @Test
     public void test05CheckforlabelExistence(){
         Assume.assumeTrue(classExists);
@@ -178,6 +194,12 @@ public void testCheckForLuggageSlipIdCounterExistence() {
         }
 
     }
+
+
+    /**
+ * This tests checks if the first overloaded constructor [ LLuggageSlip(PPassenger p, FFlight f) ] is present and if it sets the state properly.
+ * The student is then given an appropriate score
+ */
 
     @Test
 public void testCheckForOverloadedConstructor1() {
@@ -216,6 +238,10 @@ public void testCheckForOverloadedConstructor1() {
     }
 }
 
+/**
+ * This tests checks if the second overloaded constructor [ LLuggageSlip(PPassenger p, FFlight f, String label) ] is present and if it sets the state properly.
+ * The student is then given an appropriate score
+ */
     @Test
 public void testCheckForOverloadedConstructor2() {
     try {
@@ -258,7 +284,10 @@ public void testCheckForOverloadedConstructor2() {
 }
 
 
-
+/**
+ * This tests checks if the method [ hasOwner ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
     @Test
     public void test7hasOwnerMethod() {
     Assume.assumeTrue(classExists);
@@ -293,6 +322,10 @@ public void testCheckForOverloadedConstructor2() {
     }
 }
 
+/**
+ * This tests checks if the method [ toString ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
 @Test
 public void testToStringMethod() {
     Assume.assumeTrue(classExists);

@@ -9,8 +9,20 @@ import org.apache.pdfbox.pdmodel.PDPageContentStream;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.apache.pdfbox.pdmodel.font.Standard14Fonts;
 
+/**
+ * The purpose of this class is to facilitate the conversion of a text file to a PDF
+ * @author shainahK
+ * @version 1.0.0
+ */
 public class TxtFileToPDF {
 
+
+/**
+ * This is the method responsible for the conversion from text to PDF. 
+ * @param txtFilePath path to the text file you want to act as the source
+ * @param pdfPath path to the PDF file you want to create
+ * @throws IOException error thrown if the source text file is not found
+ */
     public void convertTextToPdf(String txtFilePath, String pdfPath) throws IOException {
         try (BufferedReader reader = new BufferedReader(new FileReader(txtFilePath));
              PDDocument pdf = new PDDocument()) {

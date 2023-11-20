@@ -10,6 +10,11 @@ import org.junit.runner.JUnitCore;
 //import org.junit.runner.Result;
 //import org.junit.runner.notification.Failure;
 
+/**
+ * The purpose of this class is that it acts like a main, all the classes are called and run through this.
+ * @author joshuamvw
+ * @version 1.0.0
+ */
 public class MarkAssignment 
 {
 
@@ -60,6 +65,7 @@ public class MarkAssignment
         try {
             copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageManifest.java", "./src/main/java/team3oop2project/LLuggageManifest.java");
             writer.append("\nTests for LuggageManifest Class (20 marks):\n");
+            JUnitCore.runClasses(LuggageManifestTester.class);
         } catch (IOException e) {
             System.err.println("Error: " + e.getMessage());
         }

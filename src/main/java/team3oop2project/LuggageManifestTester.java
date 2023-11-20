@@ -31,7 +31,10 @@ public class LuggageManifestTester {
     private int score = 0;
     LLuggageManifest luggageManifest ;
 
-
+/**
+ * The purpose of this test is to check if the LuggageManifest class exists from the students code. 
+ * If it doesnt, all the tests would be skipped and no error thrown and student would be marked 0
+ */
     @Before
     public void test01CheckForClassExistence(){
         // class is worth 16 in total 
@@ -47,7 +50,10 @@ public class LuggageManifestTester {
 
     }
 
-
+/**
+ * This tests checks if the slips attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
 public void testCheckForSlipsExistence() {
     Assume.assumeTrue(classExists);
@@ -91,6 +97,10 @@ public void testCheckForSlipsExistence() {
     }
 }
 
+/**
+ * This tests checks if the constructor [ LLuggageManifest() ] is present and if it sets the state properly.
+ * The student is then given an appropriate score
+ */
     @Test
 public void testLuggageManifestConstructor() {
     Assume.assumeTrue(classExists);
@@ -138,7 +148,10 @@ public void testLuggageManifestConstructor() {
 
 
 
-
+/**
+ * This tests checks if the method [ getExcessLuggageCost ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
 @Test
 public void testGetExcessLuggageCostMethod() {
     Assume.assumeTrue(classExists);
@@ -194,6 +207,10 @@ public void testGetExcessLuggageCostMethod() {
     }
 }
 
+/**
+ * This tests checks if the method [ getExcessLuggageCostByPassenger ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
 @Test
 public void testGetExcessLuggageCostByPassengerMethod() {
     Assume.assumeTrue(classExists);
@@ -240,6 +257,10 @@ public void testGetExcessLuggageCostByPassengerMethod() {
     }
 }
 
+/**
+ * This tests checks if the method [ toString ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
 @Test
 public void testToStringMethod() {
     Assume.assumeTrue(classExists);

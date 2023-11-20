@@ -29,7 +29,8 @@ public class FlightTester{
     FFlight flight ;
 
 /**
- * The purpose of 
+ * The purpose of this test is to check if the Flight class exists from the students code. 
+ * If it doesnt, all the tests would be skipped and no error thrown and student would be marked 0
  */
     @Before
     public void test01CheckForClassExistence(){
@@ -46,7 +47,10 @@ public class FlightTester{
 
     }
 
-
+/**
+ * This tests checks if the flightNo attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
      @Test
     public void test02CheckforflightNoExistence(){
         Assume.assumeTrue(classExists);
@@ -80,7 +84,10 @@ public class FlightTester{
         
     }
 
-
+/**
+ * This tests checks if the destination attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test03CheckfordestinationExistence(){
         Assume.assumeTrue(classExists);
@@ -114,7 +121,10 @@ public class FlightTester{
         
     }
 
-
+/**
+ * This tests checks if the origin attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
      @Test
     public void test04CheckfororiginExistence(){
         Assume.assumeTrue(classExists);
@@ -148,7 +158,10 @@ public class FlightTester{
         
     }
 
-
+/**
+ * This tests checks if the flightDate attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
      @Test
     public void test05CheckforflightDateExistence(){
         Assume.assumeTrue(classExists);
@@ -181,7 +194,10 @@ public class FlightTester{
 
     }
 
-
+/**
+ * This tests checks if the manifest attribute is in the code, if it has the corrrect access, and if it of the correct type.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test06CheckformanifestExistence(){
         Assume.assumeTrue(classExists);
@@ -215,6 +231,10 @@ public class FlightTester{
         
     }
 
+    /**
+ * This tests checks if the overloaded constructor [ FFlight(String flightNo, String destination, String origin, LocalDateTime flightDate) ] is present and if it sets the state properly.
+ * The student is then given an appropriate score
+ */
     @Test
     public void test07CheckForOverloadedConstructorFFlight() {
         try {
@@ -249,6 +269,10 @@ public class FlightTester{
         }
     }
 
+    /**
+ * This tests checks if the [ checkInLuggage ] method is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
     @Test
     public void testCheckInLuggageMethod() {
         Assume.assumeTrue(classExists);
@@ -295,7 +319,11 @@ public class FlightTester{
             fail("Exception during test: " + e.getMessage());
         }
     }
-//IDK HOW TO FIX THIS ONE.....
+
+    /**
+ * This tests checks if the method [ printLuggageManifest ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
     @Test
     public void testPrintLuggageManifestMethod() {
     Assume.assumeTrue(classExists);
@@ -356,7 +384,10 @@ public class FlightTester{
 }
 
 
-
+/**
+ * This tests checks if the method [ getAllowedLuggage ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
 @Test
 public void testGetAllowedLuggageMethod() {
     Assume.assumeTrue(classExists);
@@ -400,7 +431,10 @@ public void testGetAllowedLuggageMethod() {
     }
 }
 
-//Doestn work
+/**
+ * This tests checks if the method [ toString ] is present, if it is of the correct return type, if it has the right parameters, and if it works properly
+ * The student is then given an appropriate score
+ */
 @Test
 public void testToStringMethod() {
     Assume.assumeTrue(classExists);
