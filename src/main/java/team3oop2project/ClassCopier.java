@@ -6,9 +6,22 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 
+
+/**
+ * The purpose of this class is to copy the files from the student assignment into the code. 
+ * When the assignment files are extracted, because they were not present at run-time, the tests do not work on them.
+ * To facilitate the tests, classes were createdand the contents of the student's assignments were  copied into them, e.g student's Flight copied into our FFlight that was present at run-time 
+ * @author joshuamvw
+ * @version 1.0.0
+ */
 public class ClassCopier {
 
-
+/**
+ * The purpose of this method is to copy the files from the student assignment into the code and add on the package tag
+ * @param sourceFilePath This is the path to the source file you want to copy the contents of
+ * @param destinationFilePath This is the path to the destination file you want to copy the contents to
+ * @throws IOException This handles the exception that the source file may not be found
+ */
     public void addPackageStatement(String sourceFilePath, String destinationFilePath) throws IOException {
         // Specify the package statement
         String packageStatement = "package team3oop2project;\n\n";
@@ -44,7 +57,11 @@ public class ClassCopier {
             }
         }
     }
-
+/**
+ * The purpose of this class was to wipe the files that stored the code of student's assignment
+ * @deprecated We do not need to wipe the files
+ * @throws IOException
+ */
     public void wipeFiles() throws IOException {
         String[] fileNames = {"FFlight", "PPassenger", "LLuggageManifest", "LLuggageSlip", "LLuggageManagementSystem"};
         String newPackage = "package team3oop2project;";

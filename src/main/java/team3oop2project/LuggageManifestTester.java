@@ -19,6 +19,12 @@ import org.junit.Assume;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * The purpose of this class is to test the LuggageManifest class and give a score
+ * @author LukeL, joshuamvw 
+ * @version 1.0.0
+ */
+
 public class LuggageManifestTester {
     private WriteToText writer = new WriteToText("./src/main/java/team3oop2project/outputForPDF.txt");
     private boolean classExists = false;

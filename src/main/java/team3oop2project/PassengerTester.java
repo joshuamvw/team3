@@ -18,6 +18,12 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+/**
+ * The purpose of this class is to test the Passenger class and give a score
+ * @author joshuamvw, LukeL
+ * @version 1.0.0
+ */
+
 public class PassengerTester {
     private WriteToText writer = new WriteToText("./src/main/java/team3oop2project/outputForPDF.txt");
     private boolean classExists = false;
