@@ -70,29 +70,41 @@ public class MarkAssignment
             System.err.println("Error: " + e.getMessage());
         }
 
-        //Copy LuggageManagementSystem
-        try {
-            copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageManagementSystem.java", "./src/main/java/team3oop2project/LLuggageManagementSystem.java");
-            writer.append("\nTests for LuggageManagementSystem Class:\n");
-        } catch (IOException e) {
-            System.err.println("Error: " + e.getMessage());
-        }
+        // //Copy LuggageManagementSystem
+        // try {
+        //     copycat.addPackageStatement("./src/main/java/team3oop2project/LuggageManagementSystem.java", "./src/main/java/team3oop2project/LLuggageManagementSystem.java");
+        //     writer.append("\nTests for LuggageManagementSystem Class:\n");
+        // } catch (IOException e) {
+        //     System.err.println("Error: " + e.getMessage());
+        // }
 
         
-        //Result result = JUnitCore.runClasses(AppTest.class, PassengerTester.class);
-        ZipFiles zip = new ZipFiles(filesUnzipped);
-        zip.zipFiles(zipFilePath);
-        unzip.deleteUnzippedFiles(filesUnzipped);
+        
 
-        String[] idlul = new String[10];
-        idlul = zipFileName.split("_");
+        String[] idAsgn = new String[10];
+        idAsgn = zipFileName.split("_");
         TxtFileToPDF txtToPdf = new TxtFileToPDF();
 
         try{
-        txtToPdf.convertTextToPdf("./src/main/java/team3oop2project/outputForPDF.txt", "./src/main/java/team3oop2project/"+ idlul[0] +".pdf");
+        txtToPdf.convertTextToPdf("./src/main/java/team3oop2project/outputForPDF.txt", "./src/main/java/team3oop2project/"+ idAsgn[0] +".pdf");
         } catch(IOException e){
             System.err.println("Error: " + e.getMessage());
         }
+
+        int x = filesUnzipped.length;
+        String[] filesUnzipped2 = new String[x+1];
+        
+        int y = 0;
+        for(String value: filesUnzipped){
+            filesUnzipped2[y] = value;
+            y++;
+        }
+
+        filesUnzipped2[y]= idAsgn[0] +".pdf";
+        //Result result = JUnitCore.runClasses(AppTest.class, PassengerTester.class);
+        ZipFiles zip = new ZipFiles(filesUnzipped2);
+        zip.zipFiles(zipFilePath);
+        unzip.deleteUnzippedFiles(filesUnzipped2);
 
         // Wipe the files after
         // try{

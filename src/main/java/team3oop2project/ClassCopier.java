@@ -24,6 +24,9 @@ public class ClassCopier {
  */
     public void addPackageStatement(String sourceFilePath, String destinationFilePath) throws IOException {
         // Specify the package statement
+        /**
+         * This attribute holds the value of the package statement to be appended
+         */
         String packageStatement = "package team3oop2project;\n\n";
 
         // Read the content of the source file
